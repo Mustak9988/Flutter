@@ -1,6 +1,6 @@
-import 'package:e_commerce/utils/color_manager.dart';
 import 'package:e_commerce/utils/strings_manager.dart';
 import 'package:flutter/widgets.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CatalogHeader extends StatelessWidget {
   const CatalogHeader({super.key});
@@ -15,12 +15,12 @@ class CatalogHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: ColorManager.darkBluishColor,
+              color: context.theme.accentColor,
             )),
         Text(AppStrings.trendingProducts,
             style: TextStyle(
               fontSize: 18,
-              color: ColorManager.darkBluishColor,
+              color:context.theme.accentColor,
             )),
       ],
     );

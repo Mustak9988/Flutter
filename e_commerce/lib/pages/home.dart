@@ -1,5 +1,8 @@
 import 'dart:convert';
 import 'package:e_commerce/pages/widges/home_widgets/catalog_header.dart';
+import 'package:e_commerce/utils/all_routes.dart';
+import 'package:e_commerce/utils/color_manager.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:e_commerce/models/catalog.dart';
@@ -21,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
 
     loadData();
   }
@@ -46,6 +48,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AllRoutes.cartPages);
+        },
+        backgroundColor: context.theme.buttonColor,
+        child: const Icon(CupertinoIcons.cart,
+        color: Colors.white,),
+      ),
       body: SafeArea(
         child: Container(
           //wrap with container because I need to put a padding
@@ -53,19 +64,19 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               const CatalogHeader(),
-               //if else only possible inside childern list not single child or widget
-               //for single we need to use ternary operator
-               if (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
-                  const CatalogList().py16().expand() //using third party libray called valucity/x
-                 else
-               const CircularProgressIndicator().centered().expand(),
+              const CatalogHeader(),
+              //if else only possible inside childern list not single child or widget
+              //for single we need to use ternary operator
+              if (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
+                const CatalogList()
+                    .py16()
+                    .expand() //using third party libray called valucity/x
+              else
+                const CircularProgressIndicator().centered().expand(),
             ],
           ),
         ),
       ),
-      
-     
     );
   }
 }

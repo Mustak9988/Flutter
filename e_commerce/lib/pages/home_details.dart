@@ -14,7 +14,7 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: ColorManager.creamColor,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -29,12 +29,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth, //media curey screen width
                   child: Column(
                     children: [
                       catalog.name!.text.xl4
-                          .color(ColorManager.darkBluishColor)
+                          .color(context.accentColor)
                           .bold
                           .make(),
                       catalog.desc!.text
@@ -48,7 +48,7 @@ class HomeDetailPage extends StatelessWidget {
                         child: Text(
                           "Et clita eirmod sed rebum et kasd, et clita diam dolores amet. Eratpsum  amet ro dolores. Ut ipsum voluptua eos no, justo sed sadipscing invidunt sed vero takimata ea dolor dolor. Clita elitr elitr et et,.",
                           style: TextStyle(
-                            color: ColorManager.creamColor,
+                            color: ColorManager.darkBluishColor,
                           ),
                         ),
                       ),
@@ -61,25 +61,25 @@ class HomeDetailPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             SizedBox(
-              width: 100.0,
-              height: 50.0,
+              width: 120.0,
+              height: 44.0,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                      ColorManager.darkBluishColor,
+                      context.theme.buttonColor,
                     ),
                     shape: MaterialStateProperty.all(
                       StadiumBorder(),
                     )),
-                child: AppStrings.buy.text.make(),
+                child: AppStrings.addCart.text.make(),
               ), //.wh(100, 50), means sizeBox
             )
           ],

@@ -1,5 +1,6 @@
 import 'package:e_commerce/utils/all_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -35,7 +36,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -50,7 +51,7 @@ class _LoginState extends State<Login> {
               Text(
                 "Welocme $name",
                 style: TextStyle(
-                    color: Colors.black87,
+                    color: context.accentColor,
                     fontSize: 28,
                     fontWeight: FontWeight.bold),
               ),
@@ -111,31 +112,36 @@ class _LoginState extends State<Login> {
               //   ),
               // ),
 
-              InkWell(
-                onTap: () {
-                  moveTOHome(context);
-                },
-                child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
-                  height: 60,
-                  width: changeButton ? 60 : 150, //ternary operator use
-                  child: changeButton
-                      ? Icon(
-                          Icons.done,
-                          color: Colors.white,
-                        )
-                      : Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    // shape: changeButton?BoxShape.circle:BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(changeButton ? 60 : 8),
+              Material(
+                color: context.theme.buttonColor ,
+                borderRadius: BorderRadius.circular(changeButton? 50 : 8),
+                child: InkWell(
+                  
+                  onTap: () {
+                    moveTOHome(context);
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    height: 50,
+                    width: changeButton ? 50 : 150,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      // shape: changeButton?BoxShape.circle:BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                    ), //ternary operator use
+                    child: changeButton
+                        ? const Icon(
+                            Icons.done,
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
                   ),
                 ),
               ),

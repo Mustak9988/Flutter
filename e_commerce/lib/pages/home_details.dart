@@ -18,36 +18,45 @@ class HomeDetailPage extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: Column(
-         
           children: [
             Hero(
               tag: Key(catalog.id.toString()),
               child: Image.network(catalog.image.toString()),
             ).h32(context),
             Expanded(
-                child: VxArc(
-              height: 30.0,
-              arcType: VxArcType.CONVEY,
-              edge: VxEdge.TOP,
-              child: Container(
-                color: Colors.white,
-                width: context.screenWidth, //media curey screen width
-                child: Column(
-                  children: [
-                    catalog.name!.text.xl4
-                        .color(ColorManager.darkBluishColor)
-                        .bold
-                        .make(),
-                    catalog.desc!.text
-                        .textStyle(context.captionStyle)
-                        .xl
-                        .make(),
-                    10.heightBox,
-                  ],
-                ).py64(),
+              child: VxArc(
+                height: 30.0,
+                arcType: VxArcType.CONVEY,
+                edge: VxEdge.TOP,
+                child: Container(
+                  color: Colors.white,
+                  width: context.screenWidth, //media curey screen width
+                  child: Column(
+                    children: [
+                      catalog.name!.text.xl4
+                          .color(ColorManager.darkBluishColor)
+                          .bold
+                          .make(),
+                      catalog.desc!.text
+                          .textStyle(context.captionStyle)
+                          .xl
+                          .make(),
+                      10.heightBox,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, top: 28.0, bottom: 16.0, right: 16.0),
+                        child: Text(
+                          "Et clita eirmod sed rebum et kasd, et clita diam dolores amet. Eratpsum  amet ro dolores. Ut ipsum voluptua eos no, justo sed sadipscing invidunt sed vero takimata ea dolor dolor. Clita elitr elitr et et,.",
+                          style: TextStyle(
+                            color: ColorManager.creamColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ).py64(),
+                ),
               ),
             ),
-            )
           ],
         ),
       ),

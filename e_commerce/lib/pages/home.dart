@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:e_commerce/pages/widges/home_widgets/catalog_header.dart';
 import 'package:e_commerce/utils/all_routes.dart';
-import 'package:e_commerce/utils/color_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
